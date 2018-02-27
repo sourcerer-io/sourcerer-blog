@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  labels:
+    app: mongo
+    role: master
+    tier: backend
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  # Replace with the IP of your minikube node / master node
+  # externalIPs:
+  #   - 192.168.99.100
+  selector:
+    app: mongo
+    role: master
+    tier: backend
